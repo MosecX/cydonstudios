@@ -3,8 +3,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import LoginForm from "@/components/LoginForm";
 
-export default function LoginPage() {
-  const cookieStore = cookies(); // ✅ síncrono
+export default async function LoginPage() {
+  const cookieStore = await cookies(); // ✅ ahora sí await
   const token = cookieStore.get("token")?.value;
 
   if (token) {
